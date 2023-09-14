@@ -12,7 +12,7 @@ export class InviteApi {
     return data;
   }
 
-  async sendInvite(email) {
+  async sendInvites(emails) {
     const response = await fetch(
       `${this.baseUrl}/invites?auth=${this.authCode}`,
       {
@@ -20,7 +20,7 @@ export class InviteApi {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify(emails),
       }
     );
     const data = await response.json();
