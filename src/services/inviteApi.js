@@ -1,4 +1,3 @@
-
 export class InviteApi {
   constructor() {
     this.baseUrl = "https://olio-interview-homework.herokuapp.com";
