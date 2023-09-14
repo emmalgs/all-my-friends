@@ -22,17 +22,17 @@ function FriendsModal(props) {
           {props.friendsList.map((friend, index) => {
             return (
               <div key={index} className="friend-select">
+                <input
+                  type="checkbox"
+                  name={friend.email}
+                  value={friend.email}
+                />
                 <label className="info">
                   <div>
                     {friend.firstName} {friend.lastName}
                   </div>
                   <div>{friend.email}</div>
                 </label>
-                <input
-                  type="checkbox"
-                  name={friend.email}
-                  value={friend.email}
-                />
               </div>
             );
           })}
