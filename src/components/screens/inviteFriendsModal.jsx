@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import Selection from "../atoms/selection";
 
 function FriendsModal(props) {
+  const [selected, setSelected] = useState([]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const emails = [];
-    for (let pair of formData.entries()) {
-      emails.push(pair[1]);
-    }
-    props.inviteFriends(emails);
+    props.inviteFriends(selected);
     props.exitClick();
   };
+
+  const buttonText =
+    selected.length === 1
+      ? "Send invite to 1 person"
+      : selected.length === 0
+      ? `Send invites`
+      : `Send invites to ${selected.length} people`;
+
   return (
     <div>
       <div className="modal-header">
@@ -21,22 +27,27 @@ function FriendsModal(props) {
         <form onSubmit={handleSubmit}>
           {props.friendsList.map((friend, index) => {
             return (
-              <div key={index} className="friend-select">
-                <input
-                  type="checkbox"
-                  name={friend.email}
-                  value={friend.email}
+              <Selection 
+                key={index}
+                class="friend-select"
+                value={friend.email}
+                name={friend.email}
+                selectionAction={(event) => {
+                  if (event.target.checked) {
+                    setSelected([...selected, event.target.value]);
+                  } else {
+                    setSelected(
+                      selected.filter((email) => email !== event.target.value)
+                    );
+                  }
+                }}
+                labelClass="friend-select-label"
+                title={`${friend.firstName} ${friend.lastName}`}
+                subtitle={friend.email}
                 />
-                <label className="info">
-                  <div>
-                    {friend.firstName} {friend.lastName}
-                  </div>
-                  <div>{friend.email}</div>
-                </label>
-              </div>
             );
           })}
-          <button type="submit">Invite Friends</button>
+          <button type="submit">{buttonText}</button>
         </form>
       </div>
     </div>
