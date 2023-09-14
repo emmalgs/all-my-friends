@@ -1,6 +1,16 @@
 import React from "react";
 
 function FriendsModal(props) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const emails = [];
+    for (let pair of formData.entries()) {
+      emails.push(pair[1]);
+    }
+    props.inviteFriends(emails);
+    props.exitClick();
+  };
   return (
     <div>
       <div className="modal-header">
@@ -8,7 +18,7 @@ function FriendsModal(props) {
         <h1>Invite Friends</h1>
       </div>
       <div className="modal-body">
-        <form>
+        <form onSubmit={handleSubmit}>
           {props.friendsList.map((friend, index) => {
             return (
               <div key={index} className="friend-select">
@@ -26,7 +36,7 @@ function FriendsModal(props) {
               </div>
             );
           })}
-          <button>Invite Friends</button>
+          <button type="submit">Invite Friends</button>
         </form>
       </div>
     </div>
