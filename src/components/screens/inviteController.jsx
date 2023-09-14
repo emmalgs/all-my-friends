@@ -6,6 +6,7 @@ import { InviteApi } from "../../services/inviteApi";
 function InviteController() {
   const [showFriendsModal, setShowFriendsModal] = useState(false);
   const [friends, setFriends] = useState([]);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const inviteApi = new InviteApi();
@@ -18,11 +19,18 @@ function InviteController() {
     setShowFriendsModal(!showFriendsModal);
   };
 
+  const handleInvite = (selectedFriends) => {
+    const inviteApi = new InviteApi();
+    inviteApi.sendInvites(selectedFriends).then((response) => {
+      setMessage(response.message);
+    });
+  };
+
   let visibleScreen = null;
   if (showFriendsModal) {
-    visibleScreen = <FriendsModal exitClick={toggleModal} friendsList={friends} />;
+    visibleScreen = <FriendsModal exitClick={toggleModal} friendsList={friends} inviteFriends={handleInvite} />;
   } else {
-    visibleScreen = <Home inviteClick={toggleModal} />;
+    visibleScreen = <Home inviteClick={toggleModal} userMessage={message} />;
   }
   return <div>{visibleScreen}</div>;
 }
