@@ -30,7 +30,7 @@ function FriendsModal(props) {
 
   return (
     <div>
-      <ModalHeader exit={exitClick} />
+      <ModalHeader exit={props.exitClick} />
       <div className="modal-body">
         <ModalForm
           handleSubmitClick={handleSubmit}
