@@ -29,9 +29,8 @@ function FriendsModal(props) {
       : `Send invites to ${selected.length} people`;
 
   return (
-    <div>
+    <div className="modal">
       <ModalHeader exit={props.exitClick} />
-      <div className="modal-body">
         <ModalForm
           handleSubmitClick={handleSubmit}
           list={props.friendsList}
@@ -39,7 +38,6 @@ function FriendsModal(props) {
           buttonTextValue={buttonText}
           btnDisableValue={selected.length === 0}
         />
-      </div>
     </div>
   );
 }
