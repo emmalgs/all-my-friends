@@ -2,7 +2,7 @@ import React from "react";
 
 function Selection(props) {
   return (
-    <div key={props.key} className={props.class}>
+    <div className={props.class}>
       <input
         type="checkbox"
         value={props.value}
