@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Selection from "../atoms/selection";
+import ModalHeader from "../molecules/modalHeader";
 import ModalForm from "../molecules/modalForm";
 
 function FriendsModal(props) {
@@ -30,28 +30,15 @@ function FriendsModal(props) {
 
   return (
     <div>
-      <div className="modal-header">
-        <span onClick={props.exitClick}>x</span>
-        <h1>Invite Friends</h1>
-      </div>
+      <ModalHeader exit={exitClick} />
       <div className="modal-body">
-        <form onSubmit={handleSubmit}>
-          {props.friendsList.map((friend, index) => {
-            return (
-              <Selection 
-                key={index}
-                class="friend-select"
-                value={friend.email}
-                name={friend.email}
-                selectionAction={(event) => {handleSelection(event)}}
-                labelClass="friend-select-label"
-                title={`${friend.firstName} ${friend.lastName}`}
-                subtitle={friend.email}
-              />
-            );
-          })}
-          <button type="submit" disabled={selected.length === 0}>{buttonText}</button>
-        </form>
+        <ModalForm
+          handleSubmitClick={handleSubmit}
+          list={props.friendsList}
+          handleItemSelection={handleSelection}
+          buttonTextValue={buttonText}
+          btnDisableValue={selected.length === 0}
+        />
       </div>
     </div>
   );
