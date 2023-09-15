@@ -3,7 +3,7 @@ import Selection from "./selection";
 
 function ModalForm(props) {
   return (
-  <form onSubmit={props.handleSubmitClick}>
+  <form onSubmit={props.handleSubmitClick} className="modal-form">
     {props.list.map((item, index) => {
       return (
         <Selection
