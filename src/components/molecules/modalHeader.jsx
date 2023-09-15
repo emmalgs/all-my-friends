@@ -2,9 +2,11 @@ import React from "react";
 
 function ModalHeader(props) {
   return (
-    <div>
-      {/* header with exit button and 'Invite Your Friends' */}
-      {/* list of selectable buttons */}
+    <div className="modal-header">
+      <span onClick={props.exit}>&#215;</span>
+      <h2>Invite Your 'Friends'</h2>
     </div>
   )
 }
+
+export default ModalHeader;
