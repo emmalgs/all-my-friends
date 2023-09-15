@@ -1,7 +1,8 @@
 import React from "react";
-import Selection from "../atoms/selection";
+import Selection from "./selection";
 
 function ModalForm(props) {
+  return (
   <form onSubmit={props.handleSubmitClick}>
     {props.list.map((item, index) => {
       return (
@@ -19,8 +20,9 @@ function ModalForm(props) {
         />
       );
     })}
-    <button type="submit">{props.buttonTextValue}</button>
-  </form>;
+    <button type="submit" disabled={props.btnDisableValue}>{props.buttonTextValue}</button>
+  </form>
+  );
 }
 
 export default ModalForm;
