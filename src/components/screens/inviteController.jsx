@@ -7,9 +7,10 @@ function InviteController() {
   const [showFriendsModal, setShowFriendsModal] = useState(false);
   const [friends, setFriends] = useState([]);
   const [message, setMessage] = useState("");
+  // make a hook for useInviteApi
+  const inviteApi = new InviteApi();
 
   useEffect(() => {
-    const inviteApi = new InviteApi();
     inviteApi.getCandidates().then((response) => {
       setFriends(response);
     });
@@ -20,7 +21,6 @@ function InviteController() {
   };
 
   const handleInvite = (selectedFriends) => {
-    const inviteApi = new InviteApi();
     inviteApi.sendInvites(selectedFriends).then((response) => {
       setMessage(response.message);
     });
