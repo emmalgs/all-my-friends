@@ -1,6 +1,6 @@
 export class InviteApi {
   constructor() {
-    this.baseUrl = "https://olio-interview-homework.herokuapp.com";
+    this.baseUrl = process.env.REACT_APP_APIURL;
     this.authCode = process.env.REACT_APP_APICODE;
   }
 
