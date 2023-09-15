@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Selection from "../atoms/selection";
+import ModalForm from "../molecules/modalForm";
 
 function FriendsModal(props) {
   const [selected, setSelected] = useState([]);
@@ -8,6 +9,16 @@ function FriendsModal(props) {
     event.preventDefault();
     props.inviteFriends(selected);
     props.exitClick();
+  };
+
+  const handleSelection = (event) => {
+    if (event.target.checked) {
+      setSelected([...selected, event.target.value]);
+    } else {
+      setSelected(
+        selected.filter((email) => email !== event.target.value)
+      );
+    }
   };
 
   const buttonText =
@@ -32,22 +43,14 @@ function FriendsModal(props) {
                 class="friend-select"
                 value={friend.email}
                 name={friend.email}
-                selectionAction={(event) => {
-                  if (event.target.checked) {
-                    setSelected([...selected, event.target.value]);
-                  } else {
-                    setSelected(
-                      selected.filter((email) => email !== event.target.value)
-                    );
-                  }
-                }}
+                selectionAction={(event) => {handleSelection(event)}}
                 labelClass="friend-select-label"
                 title={`${friend.firstName} ${friend.lastName}`}
                 subtitle={friend.email}
-                />
+              />
             );
           })}
-          <button type="submit">{buttonText}</button>
+          <button type="submit" disabled={selected.length === 0}>{buttonText}</button>
         </form>
       </div>
     </div>
