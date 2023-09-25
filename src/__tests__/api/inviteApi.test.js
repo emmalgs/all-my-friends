@@ -1,35 +1,32 @@
 import { InviteApi } from "../../services/inviteApi";
 
-describe("InviteApi", () => {
-  let inviteApi;
+const { startMockServer, stopMockServer } = require("../../mock/mockServer");
+
+describe("inviteApi", () => {
   beforeEach(() => {
-    inviteApi = new InviteApi();
+    startMockServer();
+  });
+  afterEach(() => {
+    stopMockServer();
   });
 
-  describe("constructor", () => {
-    it("should create a new instance of the inviteApi", () => {
-      expect(inviteApi).toBeInstanceOf(InviteApi);
+  it("should get a list of candidates", async () => {
+    const api = new InviteApi("http://localhost:4000", "mock-auth-code");
+    const candidates = await api.getCandidates();
+    expect(candidates[0]).toEqual({
+      firstName: "Mary",
+      lastName: "Adams",
+      email: "mary.adams@gmail.com",
     });
   });
 
-  describe("getCandidates", () => {
-    it("should return 200 response", async () => {
-      const response = await inviteApi.getCandidates();
-      expect(response[0]).toEqual(
-        {
-          email: "david.smith@test.com",
-          firstName: "David",
-          lastName: "Smith",
-        });
-    });
-  });
-
-  describe("sendInvites", () => {
-    it("should return a message saying how many friends were invited", async () => {
-      const emails = ["sample@sample.net", "greg@greg.com"];
-      const response = await inviteApi.sendInvites(emails);
-      console.log(response)
-      expect(response.message).toEqual("Invites have been sent to 2 friends.");
-    });
+  it('should return a message with the number of email invites sent', async () => {
+    const api = new InviteApi("http://localhost:4000", "mock-auth-code");
+    const emails = [
+      "greg@greg.com", 
+      "grog@grog.com",
+    ];
+    const response = await api.sendInvites(emails);
+    expect(response.message).toEqual("Invites sent to 2 emails");
   });
 });
