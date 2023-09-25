@@ -8,7 +8,7 @@ function InviteController() {
   const [friends, setFriends] = useState([]);
   const [message, setMessage] = useState("");
   // make a hook for useInviteApi
-  const inviteApi = new InviteApi();
+  const inviteApi = new InviteApi(process.env.REACT_APP_APIURL, process.env.REACT_APP_APICODE);
 
   useEffect(() => {
     inviteApi.getCandidates().then((response) => {
