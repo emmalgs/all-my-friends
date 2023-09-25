@@ -1,7 +1,7 @@
 export class InviteApi {
-  constructor() {
-    this.baseUrl = process.env.REACT_APP_APIURL;
-    this.authCode = process.env.REACT_APP_APICODE;
+  constructor(baseUrl, authCode) {
+    this.baseUrl = baseUrl;
+    this.authCode = authCode;
   }
 
   async getCandidates() {
