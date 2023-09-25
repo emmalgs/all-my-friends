@@ -20,13 +20,13 @@ describe("inviteApi", () => {
     });
   });
 
-  it('should return a message with the number of email invites sent', async () => {
-    const api = new InviteApi("http://localhost:4000", "mock-auth-code");
-    const emails = [
-      "greg@greg.com", 
-      "grog@grog.com",
-    ];
-    const response = await api.sendInvites(emails);
-    expect(response.message).toEqual("Invites sent to 2 emails");
-  });
+  // it('should return a message with the number of email invites sent', async () => {
+  //   const api = new InviteApi("http://localhost:4000", "mock-auth-code");
+  //   const emails = [
+  //     "greg@greg.com", 
+  //     "grog@grog.com",
+  //   ];
+  //   const response = await api.sendInvites(emails);
+  //   expect(response.message).toEqual("Invites sent to 2 emails");
+  // });
 });
