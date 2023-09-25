@@ -1,4 +1,4 @@
-import sampleData from "../components/data/inviteCandidates";
+const { sampleData } = require("../components/data/inviteCandidates")
 
 const express = require("express");
 const app = express();
@@ -27,5 +27,6 @@ const stopMockServer = () => {
   server.close();
   console.log(`Mock server stopped at http://localhost:${port}`)
 };
+
 
 module.exports = { startMockServer, stopMockServer };
