@@ -15,9 +15,7 @@ function FriendsModal(props) {
     if (event.target.checked) {
       setSelected([...selected, event.target.value]);
     } else {
-      setSelected(
-        selected.filter((email) => email !== event.target.value)
-      );
+      setSelected(selected.filter((email) => email !== event.target.value));
     }
   };
 
@@ -31,13 +29,13 @@ function FriendsModal(props) {
   return (
     <div className="modal">
       <ModalHeader exit={props.exitClick} />
-        <ModalForm
-          handleSubmitClick={handleSubmit}
-          list={props.friendsList}
-          handleItemSelection={handleSelection}
-          buttonTextValue={buttonText}
-          btnDisableValue={selected.length === 0}
-        />
+      <ModalForm
+        handleSubmitClick={handleSubmit}
+        list={props.friendsList}
+        handleItemSelection={handleSelection}
+        buttonTextValue={buttonText}
+        btnDisableValue={selected.length === 0}
+      />
     </div>
   );
 }
