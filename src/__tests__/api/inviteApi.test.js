@@ -16,6 +16,15 @@ describe("inviteApi", () => {
     });
   });
 
+  it('should return an error message if the auth code is invalid', async () => {
+    fetchMock.mockResponseOnce(JSON.stringify({
+      message: "Invalid auth code"
+    }));
+    const api = new InviteApi("", "");
+    const response = await api.getCandidates();
+    expect(response.message).toEqual("Invalid auth code");
+  });
+
   it('should return a message with the number of email invites sent', async () => {
     fetchMock.mockResponseOnce(JSON.stringify({
       message: "Invites sent to 2 emails"
