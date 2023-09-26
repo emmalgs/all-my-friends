@@ -1,5 +1,6 @@
 import React from "react";
 import Selection from "./selection";
+import PropTypes from "prop-types";
 
 function ModalForm(props) {
   return (
@@ -26,5 +27,13 @@ function ModalForm(props) {
     </form>
   );
 }
+
+ModalForm.propTypes = {
+  handleSubmitClick: PropTypes.func.isRequired,
+  list: PropTypes.array.isRequired,
+  handleItemSelection: PropTypes.func.isRequired,
+  buttonTextValue: PropTypes.string.isRequired,
+  btnDisableValue: PropTypes.bool.isRequired,
+};
 
 export default ModalForm;
