@@ -2,16 +2,18 @@ import React from "react";
 
 function Selection(props) {
   return (
-    <div className={props.class}>
+    <div className="selection-body">
       <input
         type="checkbox"
         value={props.value}
         name={props.name}
+        id={props.name}
+        className="selection-input"
         onChange={props.selectionAction}
       />
-      <label className={props.labelClass}>
-        <div>{props.title}</div>
-        <div>{props.subtitle}</div>
+      <label htmlFor={props.name} className="selection-label">
+        <div className="selection-title">{props.title}</div>
+        <div className="selection-subtitle">{props.subtitle}</div>
       </label>
     </div>
   );
