@@ -1,5 +1,5 @@
 import { InviteApi } from "../../services/inviteApi";
-import sampleData from "../../components/data/inviteCandidates";
+import sampleData from "../../data/inviteCandidates";
 import fetchMock from "jest-fetch-mock";
 
 fetchMock.enableMocks();
