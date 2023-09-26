@@ -99,6 +99,25 @@ body {
   color: #a0a0a0;
 }
 
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #063baf;
+}
+
+button:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
 
 @keyframes spin {
   from { transform: rotate(0deg); }
