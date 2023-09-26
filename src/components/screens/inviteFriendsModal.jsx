@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ModalHeader from "../molecules/modalHeader";
 import ModalForm from "../molecules/modalForm";
+import PropTypes from "prop-types";
 
 function FriendsModal(props) {
   const [selected, setSelected] = useState([]);
@@ -39,5 +40,11 @@ function FriendsModal(props) {
     </div>
   );
 }
+
+FriendsModal.propTypes = {
+  exitClick: PropTypes.func.isRequired,
+  friendsList: PropTypes.array.isRequired,
+  inviteFriends: PropTypes.func.isRequired,
+};
 
 export default FriendsModal;
