@@ -51,4 +51,4 @@ const sampleData = [
   }
 ];
 
-module.exports = { sampleData };
+export default sampleData ;
