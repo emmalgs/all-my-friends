@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function ModalHeader(props) {
   return (
@@ -12,5 +13,9 @@ function ModalHeader(props) {
     </div>
   )
 }
+
+ModalHeader.propTypes = {
+  exit: PropTypes.func.isRequired,
+};
 
 export default ModalHeader;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function Home(props) {
   return (
@@ -9,5 +10,10 @@ function Home(props) {
     </div>
   );
 }
+
+Home.propTypes = {
+  userMessage: PropTypes.string.isRequired,
+  inviteClick: PropTypes.func.isRequired,
+};
 
 export default Home;

@@ -1,4 +1,5 @@
 import  React, { useState } from "react";
+import PropTypes from "prop-types";
 
 function Selection(props) {
   const [selectionStyle, setSelectionStyle] = useState(disabled);
@@ -38,5 +39,13 @@ function Selection(props) {
     </div>
   );
 }
+
+Selection.propTypes = {
+  value: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  selectionAction: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+};
 
 export default Selection;
