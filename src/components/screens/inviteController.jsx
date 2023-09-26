@@ -8,7 +8,10 @@ function InviteController() {
   const [friends, setFriends] = useState([]);
   const [message, setMessage] = useState("");
   // make a hook for useInviteApi
-  const inviteApi = new InviteApi(process.env.REACT_APP_APIURL, process.env.REACT_APP_APICODE);
+  const inviteApi = new InviteApi(
+    process.env.REACT_APP_APIURL,
+    process.env.REACT_APP_APICODE
+  );
 
   useEffect(() => {
     inviteApi.getCandidates().then((response) => {
@@ -28,7 +31,13 @@ function InviteController() {
 
   let visibleScreen = null;
   if (showFriendsModal) {
-    visibleScreen = <FriendsModal exitClick={toggleModal} friendsList={friends} inviteFriends={handleInvite} />;
+    visibleScreen = (
+      <FriendsModal
+        exitClick={toggleModal}
+        friendsList={friends}
+        inviteFriends={handleInvite}
+      />
+    );
   } else {
     visibleScreen = <Home inviteClick={toggleModal} userMessage={message} />;
   }
