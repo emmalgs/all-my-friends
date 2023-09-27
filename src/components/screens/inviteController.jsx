@@ -7,7 +7,6 @@ function InviteController() {
   const [showFriendsModal, setShowFriendsModal] = useState(false);
   const [friends, setFriends] = useState([]);
   const [message, setMessage] = useState("");
-  // make a hook for useInviteApi
   const inviteApi = new InviteApi(
     process.env.REACT_APP_APIURL,
     process.env.REACT_APP_APICODE
