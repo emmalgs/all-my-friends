@@ -13,7 +13,7 @@ function ModalForm(props) {
               value={item.email}
               name={item.email}
               selectionAction={(event) => {
-                props.handleItemSelection(event);
+                props.onSelect(event);
               }}
               title={`${item.firstName} ${item.lastName}`}
               subtitle={item.email}
@@ -31,7 +31,7 @@ function ModalForm(props) {
 ModalForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   list: PropTypes.array.isRequired,
-  handleItemSelection: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
   buttonTextValue: PropTypes.string.isRequired,
   isSubmitDisabled: PropTypes.bool.isRequired,
 };

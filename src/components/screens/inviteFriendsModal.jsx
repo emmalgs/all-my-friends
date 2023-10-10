@@ -33,7 +33,7 @@ function FriendsModal(props) {
       <ModalForm
         onSubmit={handleSubmit}
         list={props.friendsList}
-        handleItemSelection={handleSelection}
+        onSelect={handleSelection}
         buttonTextValue={buttonText}
         isSubmitDisabled={selected.length === 0}
       />
