@@ -36,7 +36,6 @@ body {
   text-align: center;
   color: #777777;
   font-weight: 400;
-
 }
 
 .modal-header span {
@@ -51,7 +50,6 @@ body {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-
 }
 
 .modal-selections {
