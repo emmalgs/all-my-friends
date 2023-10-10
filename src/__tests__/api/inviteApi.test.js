@@ -54,12 +54,15 @@ describe("inviteApi.sendInvites", () => {
   it('should return a 400 bad request if the array is empty', async () => {
     fetchMock.mockResponseOnce(
       JSON.stringify({
+        status: 400,
         message: "empty array",
       })
     );
     const api = new InviteApi("", "");
     const emails = [];
     const response = await api.sendInvites(emails);
+      console.log(response)
     expect(response.message).toEqual("empty array");
+    expect(response.status).toEqual(400);
   });
 });
