@@ -36,19 +36,16 @@ function InviteController() {
     });
   };
 
-  let visibleScreen = null;
   if (showFriendsModal) {
-    visibleScreen = (
+    return (
       <FriendsModal
         exitClick={toggleModal}
         friendsList={friends}
         inviteFriends={handleInvite}
       />
     );
-  } else {
-    visibleScreen = <Home inviteClick={toggleModal} userMessage={message} />;
   }
-  return <div>{visibleScreen}</div>;
+  return <Home inviteClick={toggleModal} userMessage={message} />;
 }
 
 export { InviteController };

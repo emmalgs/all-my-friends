@@ -5,11 +5,15 @@ export class InviteApi {
   }
 
   async getCandidates() {
-    const response = await fetch(
-      `${this.baseUrl}/invite-candidates?auth=${this.authCode}`
-    );
-    const data = await response.json();
-    return data;
+    try {
+      const response = await fetch(
+        `${this.baseUrl}/invite-candidates?auth=${this.authCode}`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      throw new Error(`There was an error: ${error.message}`)
+    }
   }
 
   async sendInvites(emails) {
