@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function ModalForm(props) {
   return (
-    <form onSubmit={props.handleSubmitClick} className="modal-form">
+    <form onSubmit={props.onSubmit} className="modal-form">
       <div className="modal-selections">
         {props.list.map((item, index) => {
           return (
@@ -21,7 +21,7 @@ function ModalForm(props) {
           );
         })}
       </div>
-      <button type="submit" disabled={props.btnDisableValue}>
+      <button type="submit" disabled={props.isSubmitDisabled}>
         {props.buttonTextValue}
       </button>
     </form>
@@ -29,11 +29,11 @@ function ModalForm(props) {
 }
 
 ModalForm.propTypes = {
-  handleSubmitClick: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
   list: PropTypes.array.isRequired,
   handleItemSelection: PropTypes.func.isRequired,
   buttonTextValue: PropTypes.string.isRequired,
-  btnDisableValue: PropTypes.bool.isRequired,
+  isSubmitDisabled: PropTypes.bool.isRequired,
 };
 
 export default ModalForm;
