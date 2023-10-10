@@ -31,11 +31,11 @@ function FriendsModal(props) {
     <div className="modal">
       <ModalHeader exit={props.exitClick} />
       <ModalForm
-        handleSubmitClick={handleSubmit}
+        onSubmit={handleSubmit}
         list={props.friendsList}
         handleItemSelection={handleSelection}
         buttonTextValue={buttonText}
-        btnDisableValue={selected.length === 0}
+        isSubmitDisabled={selected.length === 0}
       />
     </div>
   );
