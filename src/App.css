@@ -1,28 +1,123 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 20px auto;
+  border: 2px solid #777777;
+  border-radius: 20px;
+  background-color: #eaeaea;
+}
+
+.modal-header {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  border-bottom: 1px solid #a0a0a0;
+  background-color: #ffffff;
+  border-radius: 20px 20px 0 0;
+}
+
+.modal-header h2 {
+  grid-column: 2 / 4;
+  font-size: 1.5rem;
   text-align: center;
+  color: #777777;
+  font-weight: 400;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.modal-header span {
+  cursor: pointer;
+  font-size: 3em;
+  text-align: left;
+  color: #a0a0a0;
+  font-weight: 300;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
-.App-title {
-  font-size: 1.5em;
+.modal-selections {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
 }
 
-.App-intro {
-  font-size: large;
+.modal-form button {
+  align-self: flex-end;
+  margin: 0.5rem;
 }
 
-@keyframes App-logo-spin {
+.selection-body {
+  display: flex;
+  border-radius: 5px;
+  border: 1px solid #a0a0a0;
+  width: 42%;
+  margin: 1rem;
+  padding: .5rem;
+  gap: 15px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.selection-input {
+  width: 20px;
+  height: 20px;
+  align-self: center;
+}
+
+.selection-label {
+  cursor: pointer;
+}
+
+.selection-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #777777;
+}
+
+.selection-subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  color: #a0a0a0;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #063baf;
+}
+
+button:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+@keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
