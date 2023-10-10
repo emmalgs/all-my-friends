@@ -13,9 +13,17 @@ function InviteController() {
   );
 
   useEffect(() => {
-    inviteApi.getCandidates().then((response) => {
-      setFriends(response);
-    });
+    inviteApi
+      .getCandidates()
+      .then((response) => {
+        if (response.error) {
+          throw new Error(response.error);
+        }
+        setFriends(response);
+      })
+      .catch((error) => {
+        setMessage(`Error: ${error.message}`);
+      });
   }, []);
 
   const toggleModal = () => {
