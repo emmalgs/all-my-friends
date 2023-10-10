@@ -22,7 +22,7 @@ function ModalForm(props) {
         })}
       </div>
       <button type="submit" disabled={props.isSubmitDisabled}>
-        {props.buttonTextValue}
+        {props.submitButtonLabel}
       </button>
     </form>
   );
@@ -32,7 +32,7 @@ ModalForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   list: PropTypes.array.isRequired,
   onSelect: PropTypes.func.isRequired,
-  buttonTextValue: PropTypes.string.isRequired,
+  submitButtonLabel: PropTypes.string.isRequired,
   isSubmitDisabled: PropTypes.bool.isRequired,
 };
 
