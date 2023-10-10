@@ -4,7 +4,7 @@ function Button(props) {
   return (
     <button
       className="btn btn-primary"
-      onClick={() => props.handleClick()}
+      onClick={props.handleClick()}
     >
       {props.buttonText}
     </button>
