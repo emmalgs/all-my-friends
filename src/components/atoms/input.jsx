@@ -6,7 +6,6 @@ function Input(props) {
     <input type="checkbox"
       value={props.value}
       name={props.name}
-      onChange={props.updateSelection}
     />
   )
 }
@@ -14,7 +13,6 @@ function Input(props) {
 Input.propTypes = {
   value: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  updateSelection: PropTypes.func.isRequired,
 }
 
 export default Input;
