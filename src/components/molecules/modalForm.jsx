@@ -12,7 +12,7 @@ function ModalForm(props) {
               key={index}
               value={item.email}
               name={item.email}
-              selectionAction={(event) => {
+              onChange={(event) => {
                 props.onSelect(event);
               }}
               title={`${item.firstName} ${item.lastName}`}

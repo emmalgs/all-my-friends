@@ -30,7 +30,7 @@ function Selection(props) {
         name={props.name}
         id={props.name}
         className="selection-input"
-        onChange={props.selectionAction}
+        onChange={props.onChange}
       />
       <label htmlFor={props.name} className="selection-label">
         <div className="selection-title">{props.title}</div>
@@ -43,7 +43,7 @@ function Selection(props) {
 Selection.propTypes = {
   value: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  selectionAction: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
 };
